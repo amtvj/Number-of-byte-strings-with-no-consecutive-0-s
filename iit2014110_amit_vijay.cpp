@@ -27,11 +27,13 @@ void power_matrix(long long int fib_matrix[2][2],long long int n){
 }
 
 long long int calculate_answer(long long int n){
-    // Since n is large, dynamic programming solution and other methods with take a lot of time to compute hence using matrix method
+    // Since n is large, dynamic programming solution and other methods with take time to compute hence using matrix method
+    // and these solution will be O(n) and n can be in the range of 10^15
     // Fib_matrix^n = {{F(n+1) , F(n)}, {F(n) , F(n-1)}}
-    // Here we need to find the (n+2)th fibonacci number to find the solution
     long long int fib_matrix[2][2] = {{1,1},{1,0}};
     power_matrix(fib_matrix,n);
+
+    // Here we return the Fib_matrix[0][1] as the n-th fibonacci number
     return fib_matrix[0][1];
 }
 
